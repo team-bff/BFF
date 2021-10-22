@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <title>Add Person</title>
 </head>
 <body>
-$END$
+<h1>Create a User:</h1>
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+
+<form th:action="@{/addUser}"
+      th:object="${usersForm}" method="POST">
+    Name
+    <input type="text" th:field="*{name}" />
+    <br/>
+    Lastname
+    <input type="text" th:field="*{lastname}" />
+
+    <br/>
+    Licence Number
+    <input type="text" th:field="*{numberLicence}" />
+
+    <br/>
+    Year Obention Licnce Driver
+    <input type="date" th:field="*{yearObtention}" />
+
+    <br/>
+    Birthday
+    <input type="date" th:field="*{birthday}" />
+
+    <br/>
+    <input type="submit" value="Create" />
+</form>
+
+<br/>
+
+
+
 </body>
 </html>
