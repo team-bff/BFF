@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Person List</title>
+</head>
+<body>
+<h1>Person List</h1>
+<a href="addPerson">Add Person</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Number Licence</th>
+            <th>Birthday</th>
+            <th>Year Obtention</th>
+
+        </tr>
+        <tr th:each ="users: ${users}">
+
+            <td th:utext="${users.name}">...</td>
+
+            <td th:utext="${users.lastname}">...</td>
+            <td th:utext="${users.numberLicence}">...</td>
+            <td th:utext="${users.birthday}">...</td>
+            <td th:utext="${users.yearObtention}">...</td>
+
+
+
+
+
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
