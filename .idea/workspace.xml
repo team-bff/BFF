@@ -4,24 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66ab558c-b240-42ef-85dd-b4f9bf8bf114" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/users/Users.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/users/UsersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/users/UsersForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/addUser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/templates/usersList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/.idea/users.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="66ab558c-b240-42ef-85dd-b4f9bf8bf114" name="Changes" comment="Réglage du Git">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_12_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_12_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/example/demo/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resrvation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/example/demo/BackApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +53,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -72,10 +80,24 @@
       <recent name="$PROJECT_DIR$/donjondragon" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.DemoApplication (1)">
+    <configuration name="DemoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo (1)" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.FrontApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.BackApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,7 +128,23 @@
       <workItem from="1634544155738" duration="1279000" />
       <workItem from="1634548415514" duration="907000" />
       <workItem from="1634885170312" duration="623000" />
+      <workItem from="1635144438202" duration="173000" />
     </task>
+    <task id="LOCAL-00001" summary="Réglage du Git">
+      <created>1634911000912</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634911000912</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Réglage du Git">
+      <created>1634911011760</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634911011760</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,5 +173,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Réglage du Git" />
+    <option name="LAST_COMMIT_MESSAGE" value="Réglage du Git" />
   </component>
 </project>

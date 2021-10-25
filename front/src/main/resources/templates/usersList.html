@@ -18,14 +18,14 @@
             <th>Year Obtention</th>
 
         </tr>
-        <tr th:each ="users: ${users}">
+        <tr th:each ="user: ${users}">
 
-            <td th:utext="${users.name}">...</td>
+            <td th:utext="${user.name}">...</td>
 
-            <td th:utext="${users.lastname}">...</td>
-            <td th:utext="${users.numberLicence}">...</td>
-            <td th:utext="${users.birthday}">...</td>
-            <td th:utext="${users.yearObtention}">...</td>
+            <td th:utext="${user.lastname}">...</td>
+            <td th:utext="${user.numberLicence}">...</td>
+            <td th:utext="${user.birthday}">...</td>
+            <td th:utext="${user.yearObtention}">...</td>
 
 
 

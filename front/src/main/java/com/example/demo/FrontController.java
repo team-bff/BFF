@@ -1,5 +1,7 @@
-package com.example.demo.users;
+package com.example.demo;
 
+import com.example.demo.users.Users;
+import com.example.demo.users.UsersForm;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-public class UsersController {
+public class FrontController {
     @GetMapping("/index")
     public String index(Model model) {
         return "index";
@@ -28,6 +30,7 @@ public class UsersController {
 
         return "addUser";
     }
+
     @GetMapping("/usersList")
     public String showPersonPage(Model model) {
         RestTemplate restTemplate = new RestTemplate();
@@ -54,10 +57,11 @@ public class UsersController {
             Date yearObtention = simpleDateFormat.parse(usersForm.getYearObtention());
 
             RestTemplate restTemplate = new RestTemplate();
-      List<Users> users = restTemplate.getForObject("http://localhost:8080/users", List.class);
 
             Users newUser = new Users(name, lastname, numberLicence, yearObtention, birthday);
             restTemplate.postForObject("http://localhost:8080/users", newUser, Users.class);
+
+            List<Users> users = restTemplate.getForObject("http://localhost:8080/users", List.class);
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -66,4 +70,5 @@ public class UsersController {
         return "redirect:/usersList";
 
     }
+
 }

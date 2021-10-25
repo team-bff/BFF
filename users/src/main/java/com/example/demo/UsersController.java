@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 
@@ -12,15 +13,15 @@ public class UsersController {
     private int id;
     private String lastname;
     private long numberLicence;
-    private int year;
-    private int month;
-    private int date;
+    private Date yearObtention;
+    private Date birthday;
+
 
 
     @Autowired
     private UserDao userDao;
 
-    @GetMapping("/users")
+    @GetMapping("users")
     public Iterable<Users> listUsers() {
         Iterable<Users> users = userDao.findAll();
         return users;
