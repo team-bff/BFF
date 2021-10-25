@@ -13,14 +13,13 @@ public class UsersController {
     private String lastname;
     private long numberLicence;
     private int year;
-    private int month;
     private int date;
 
 
     @Autowired
     private UserDao userDao;
 
-    @GetMapping("/users")
+    @GetMapping("users")
     public Iterable<Users> listUsers() {
         Iterable<Users> users = userDao.findAll();
         return users;
