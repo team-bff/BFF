@@ -5,7 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/BFF.iml" filepath="$PROJECT_DIR$/.idea/BFF.iml" />
       <module fileurl="file://$PROJECT_DIR$/users/demo.iml" filepath="$PROJECT_DIR$/users/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/front/demo (1).iml" filepath="$PROJECT_DIR$/front/demo (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/users/demo (2).iml" filepath="$PROJECT_DIR$/users/demo (2).iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projet_groupe_java.iml" filepath="$PROJECT_DIR$/.idea/projet_groupe_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resrvation/resrvation.iml" filepath="$PROJECT_DIR$/resrvation/resrvation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicules/vehicules.iml" filepath="$PROJECT_DIR$/vehicules/vehicules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/users/.mvn/wrapper/wrapper.iml" filepath="$PROJECT_DIR$/users/.mvn/wrapper/wrapper.iml" />
     </modules>
   </component>
 </project>

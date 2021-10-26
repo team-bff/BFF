@@ -1,13 +1,12 @@
 package com.example.demo;
 
+import com.example.demo.reservation.Reservation;
+import com.example.demo.reservation.ReservationForm;
 import com.example.demo.users.Users;
 import com.example.demo.users.UsersForm;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
@@ -40,6 +39,39 @@ public class FrontController {
 
         return "usersList";
     }
+
+    @GetMapping("/reservationList/{id}")
+    public String showReservationListPage(Model model, @PathVariable int id) {
+        RestTemplate restTemplate = new RestTemplate();
+
+        List<Reservation> reservation = restTemplate.getForObject("http://localhost:8082/reservation/all/" + id, List.class);
+        model.addAttribute("reservation", reservation);
+
+        return "reservationList";
+    }
+
+    @RequestMapping(value = {"/reservation/{id}"}, method = RequestMethod.GET)
+    public String showReservationPage(Model model, @PathVariable int id) {
+
+        ReservationForm reservationForm = new ReservationForm();
+        model.addAttribute("reservationForm", reservationForm);
+        model.addAttribute("id",id);
+        return "reservation";
+    }
+
+    @RequestMapping(value = {"/reservation/{id}"}, method = RequestMethod.POST)
+    public String editReservationPage(Model model, //
+                             @ModelAttribute("reservationForm") ReservationForm reservationForm) {
+        int id = reservationForm.getId();
+        int userId = reservationForm.getUserId();
+        int vehiculeId = reservationForm.getVehiculeId();
+
+            RestTemplate restTemplate = new RestTemplate();
+            Reservation reservation = new Reservation(id, userId, vehiculeId);
+            restTemplate.put("http://localhost:8081/reservaton/"+id,reservation,Reservation.class);
+
+            return "redirect:/reservationList";
+        }
 
 
     @RequestMapping(value = {"/addUser"}, method = RequestMethod.POST)

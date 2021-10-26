@@ -26,11 +26,8 @@
             <td th:utext="${user.numberLicence}">...</td>
             <td th:utext="${user.birthday}">...</td>
             <td th:utext="${user.yearObtention}">...</td>
-
-
-
-
-
+            <td><a th:href="@{reservationList/{id}(id = ${user.id})}">Toutes les réservations</a></td>
+            <td><a th:href="@{reservation/{id}(id = ${user.id})}">Modifier</a></td>
         </tr>
 
     </table>

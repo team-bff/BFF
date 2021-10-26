@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toutes les réservation</title>
+</head>
+<body>
+<h1>Réservation List</h1>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>User</th>
+            <th>vehicules</th>
+
+        </tr>
+        <tr th:each ="reservations: ${reservation}">
+
+            <td th:utext="${reservations.userId}">...</td>
+            <td th:utext="${reservations.vehiculeId}">...</td>
+
+<!--            <td><a th:href="@{reservationList/{id}(id = ${reservation.id})}">Toutes les réservations</a></td>-->
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

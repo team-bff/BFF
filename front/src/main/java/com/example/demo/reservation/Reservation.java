@@ -1,17 +1,9 @@
-package com.reservation.resrvation.model;
+package com.example.demo.reservation;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "reservation")
 public class Reservation {
 
-    @Id
-    @GeneratedValue
     private int id;
-
     private int userId;
-
     private int vehiculeId;
 
     public Reservation(int id, int userId, int vehiculeId) {
@@ -31,7 +23,7 @@ public class Reservation {
     public void setId(int id) {
         this.id = id;
     }
-    @Column
+
     public int getUserId() {
         return userId;
     }
@@ -39,7 +31,7 @@ public class Reservation {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    @Column
+
     public int getVehiculeId() {
         return vehiculeId;
     }

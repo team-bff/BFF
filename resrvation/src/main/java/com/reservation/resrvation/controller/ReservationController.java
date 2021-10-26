@@ -20,10 +20,10 @@ public class ReservationController {
     }
 
     //Affiche toutes les réservations d'un utilisateur "/reservation/all/{id}"
-    @GetMapping(value = "/reservation/all/{id}")
-    public List<Reservation> allReservationList(@PathVariable Iterable user_id){
-        List<Reservation> reservations = reservationDao.findAllById(user_id);
-        return reservations;
+    @GetMapping(value = "/reservation/all/{userId}")
+    public List<Reservation> allReservationList(@PathVariable int userId){
+        return reservationDao.findAllByUserId(userId);
+
     }
     //Affiche la réservation d'un utilisateur "/reservation/{id}"
     @GetMapping(value = "/reservation/{id}")

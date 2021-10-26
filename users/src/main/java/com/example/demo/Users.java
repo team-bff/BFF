@@ -12,7 +12,6 @@ public class Users {
     private long numberLicence;
     private Date birthday;
     private Date yearObtention;
-
     private String name;
 
     public Users(int id, String lastname, long numberLicence, String name, Date birthday, Date yearObtention) {
@@ -24,6 +23,8 @@ public class Users {
         this.yearObtention = yearObtention;
     }
 
+    public Users() {
+    }
 
 
     @Id
@@ -31,54 +32,46 @@ public class Users {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public Users() {
-    }
-
-    @Column
+    @Column(name = "firstname")
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    @Column
+    @Column(name = "lastname")
     public String getLastname() {
         return lastname;
     }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-    @Column
+    @Column(name = "licence_number")
     public long getNumberLicence() {
         return numberLicence;
     }
-
     public void setNumberLicence(long numberLicence) {
         this.numberLicence = numberLicence;
     }
-    @Column
+
+    @Column(name = "birthday")
     public Date getBirthday() {
         return birthday;
     }
-
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    @Column
+    @Column(name = "year_obtention")
     public Date getYearObtention() {
         return yearObtention;
     }
-
     public void setYearObtention(Date yearObtention) {
         this.yearObtention = yearObtention;
     }

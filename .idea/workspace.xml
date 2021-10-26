@@ -4,27 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66ab558c-b240-42ef-85dd-b4f9bf8bf114" name="Changes" comment="Réglage du Git">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_12_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_12_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="66ab558c-b240-42ef-85dd-b4f9bf8bf114" name="Changes" comment="A supprimer, pour régler les conflits">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_5_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_12_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_12_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/example/demo/users/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/example/demo/FrontController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/resources/templates/usersList.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/resources/templates/usersList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/dao/ReservationDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/model/Facturation.java" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/model/Facturation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/java/com/reservation/resrvation/model/Reservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resrvation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resrvation/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/example/demo/BackApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/example/demo/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/example/demo/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vehicules/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/vehicules/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="users" />
+        <entry key="$PROJECT_DIR$" value="Rebased" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -129,6 +131,7 @@
       <workItem from="1634548415514" duration="907000" />
       <workItem from="1634885170312" duration="623000" />
       <workItem from="1635144438202" duration="173000" />
+      <workItem from="1635230000968" duration="876000" />
     </task>
     <task id="LOCAL-00001" summary="Réglage du Git">
       <created>1634911000912</created>
@@ -161,7 +164,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin/Rebased" />
                       </list>
                     </value>
                   </entry>

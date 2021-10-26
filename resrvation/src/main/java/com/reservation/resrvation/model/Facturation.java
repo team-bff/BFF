@@ -10,9 +10,9 @@ public class Facturation {
     @GeneratedValue
     private int id;
     @Column
-    private int user_id;
+    private int userId;
     @Column
-    private int vehicule_id;
+    private int vehiculeId;
     @Column
     private int prix_base;
     @Column
@@ -20,10 +20,10 @@ public class Facturation {
     @Column
     private int prix_total;
 
-    public Facturation(int id, int user_id, int vehicule_id, int prix_base, int prix_km, int prix_total) {
+    public Facturation(int id, int userId, int vehiculeId, int prix_base, int prix_km, int prix_total) {
         this.id = id;
-        this.user_id = user_id;
-        this.vehicule_id = vehicule_id;
+        this.userId = userId;
+        this.vehiculeId = vehiculeId;
         this.prix_base = prix_base;
         this.prix_km = prix_km;
         this.prix_total = prix_total;
@@ -42,19 +42,19 @@ public class Facturation {
     }
 
     public int getUser_id() {
-        return user_id;
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser_id(int userId) {
+        this.userId = userId;
     }
 
     public int getVehicule_id() {
-        return vehicule_id;
+        return vehiculeId;
     }
 
-    public void setVehicule_id(int vehicule_id) {
-        this.vehicule_id = vehicule_id;
+    public void setVehicule_id(int vehiculeId) {
+        this.vehiculeId = vehiculeId;
     }
 
     public int getPrix_base() {
