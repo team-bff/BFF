@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
-
-    <title>Person List</title>
+    <title>Vehicules List</title>
 </head>
 <body>
-<h1>Person List</h1>
-<a href="addPerson">Add Person</a>
+<h1>Vehicules List</h1>
 <br/><br/>
 <div>
+
     <table border="1">
         <tr>
             <th>Name</th>
             <th>LastName</th>
-            <th>Number Licence</th>
             <th>Birthday</th>
-            <th>Year Obtention</th>
+            <th>Year obtention</th>
+            <th>number Licence</th>
 
         </tr>
         <tr th:each ="user: ${users}">
@@ -31,9 +30,19 @@
             <td><a th:href="@{reservationList/{id}(id = ${user.id})}">Toutes les réservations</a></td>
             <td><a th:href="@{reservation/{id}(id = ${user.id})}">Modifier</a></td>
         </tr>
-<a th:href="@{vehiculesList}">List des véhicules disponibles</a>
+
+
+
+
+
+        </tr>
+
     </table>
 </div>
+</body>
+</html></title>
+</head>
+<body>
 
 </body>
 </html>

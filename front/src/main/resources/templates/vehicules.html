@@ -13,7 +13,7 @@
    -->
 
 <form th:action="@{/vehicules} + '/' + ${id}"
-th:object="${vehiculesForm}" method="post">
+th:object="${vehiculesForm}" method="POST" class="form">
 
 
 marque
@@ -31,14 +31,15 @@ marque
   <input type="text" th:field="*{cvf}"/>
 
   <br/>
-  available
+  Available
   <input type="checkbox" th:field="*{available}"/>
 
   <br/>
+  Catégorie
   <input type="number" th:field="*{categorie}"/>
 
-  Catégorie
-  <input type="submit" value="Create"/>
+
+  <input type="submit" value="Create" class="button"/>
 </form>
 
 <br/>

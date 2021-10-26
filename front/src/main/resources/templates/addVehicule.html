@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+
+    <title>Add Vehicule</title>
 </head>
 <body>
-$END$
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+
+<form th:action="@{/addVehicule}"
+      th:object="${vehiculesForm}" method="POST" class="form">
+    marque
+    <input type="text" th:field="*{marque}"/>
+    <br/>
+    modele
+    <input type="text" th:field="*{modele}"/>
+
+    <br/>
+    Immatriculation
+    <input type="text" th:field="*{immatriculation}"/>
+
+    <br/>
+    Chevaux fiscaux
+    <input type="text" th:field="*{cvf}"/>
+
+    <br/>
+    available
+    <input type="checkbox" th:field="*{available}"/>
+
+    <br/>
+    <input type="number" th:field="*{categorie}"/>
+
+    Catégorie
+    <input type="submit" value="Create" class="button"/>
+</form>
+
+<br/>
+
+
 </body>
 </html>

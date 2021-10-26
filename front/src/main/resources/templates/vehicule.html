@@ -1,15 +1,14 @@
 <!DOCTYPE HTML>
-        <html xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <meta charset="UTF-8" />
-            <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
-        <title>Vehicules List</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+    <title>Vehicules List</title>
 </head>
 <body>
 <h1>Vehicules List</h1>
 <br/><br/>
 <div>
-    <td> <a th:href="@{/addVehicules}">Add new vehicule</a></td>
 
     <table border="1">
         <tr>
@@ -21,7 +20,7 @@
             <th>Disponibilité</th>
 
         </tr>
-        <tr th:each ="vehicule: ${vehicules}">
+        <tr th:each="vehicules : ${vehicule}">
 
             <td th:utext="${vehicule.marque}">...</td>
 
@@ -30,9 +29,7 @@
             <td th:utext="${vehicule.cvf}">...</td>
             <td th:utext="${vehicule.categorie}">...</td>
             <td th:utext="${vehicule.available}">...</td>
-            <td> <a th:href="@{/vehicules} + '/' + ${vehicule.id}">Update</a></td>
-            <td> <a th:href="@{/delete} + '/' + ${vehicule.id}">Delete</a></td>
-            <td> <a th:href="@{/vehicule} + '/' + ${vehicule.id}">View</a></td>
+
 
 
 

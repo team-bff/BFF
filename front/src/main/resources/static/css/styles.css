@@ -1,0 +1,13 @@
+.form {
+    display: block;
+    flex-direction: column;
+    background-color: lightgray;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.button {
+    display: flex;
+    background-color: orangered;
+    border-color: white;
+
+}

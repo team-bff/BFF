@@ -1,0 +1,36 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+
+    <title>Add Reservation</title>
+</head>
+<body>
+<h1>Add Reservation</h1>
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+<div class="col-lg-3" th:object="${reservationForm}" >
+    <form th:action="@{/addReservation}" th:object="${reservationForm}" method="POST">
+    <select class="form-control" id="userId" name="userId">
+        <option value="">Select your profil</option>
+        <option th:each="user : ${users}"
+                th:value="${user.id}"
+                th:text="${user.name}+' : '+${user.lastname}"></option>
+    </select>
+    <select class="form-control" id="vehiculeId" name="vehiculeId">
+        <option value="">Select your car</option>
+        <option th:each="vehicule : ${vehicules}"
+                th:value="${vehicule.id}"
+                th:text="${vehicule.marque}+' : '+${vehicule.modele}"></option>
+    </select>
+    <input type="submit" th:action="Create">
+    </form>
+</div>
+</body>
+</html>
