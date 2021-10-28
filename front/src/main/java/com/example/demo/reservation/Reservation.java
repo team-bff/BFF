@@ -12,6 +12,10 @@ public class Reservation {
 
     private int vehiculeId;
 
+    private long km;
+    private Date firstDate;
+    private Date lastDate;
+
     public long getKm() {
         return km;
     }
@@ -29,7 +33,6 @@ public class Reservation {
         this.lastDate = lastDate;
     }
 
-    private long km;
 
     public Date getFirstDate() {
         return firstDate;
@@ -47,8 +50,6 @@ public class Reservation {
         this.lastDate = lastDate;
     }
 
-    private Date firstDate;
-    private Date lastDate;
 
     public Reservation(int id, int userId, int vehiculeId, Date firstDate, Date lastDate) {
         this.id = id;

@@ -6,6 +6,7 @@ import com.example.demo.users.Users;
 import com.example.demo.users.UsersForm;
 import com.example.demo.vehicules.Vehicules;
 import com.example.demo.vehicules.VehiculesForm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +14,14 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class FrontController {
+    @Value("${error.message}")
+    private String errorMessage;
     @GetMapping("/index")
     public String index(Model model) {
         return "index";
@@ -57,7 +60,7 @@ public class FrontController {
     public String showReservationListPage(Model model, @PathVariable int id) {
         RestTemplate restTemplate = new RestTemplate();
 
-        List<Reservation> reservation = restTemplate.getForObject("http://localhost:8082/reservation/all/" + id, List.class);
+        List<Reservation> reservation = restTemplate.getForObject("http://localhost:8082/reservations", List.class);
         model.addAttribute("reservation", reservation);
 
         return "reservationList";
@@ -81,7 +84,7 @@ public class FrontController {
 
         RestTemplate restTemplate = new RestTemplate();
         Reservation reservation = new Reservation(id, userId, vehiculeId);
-        restTemplate.put("http://localhost:8081/reservaton/" + id, reservation, Reservation.class);
+        restTemplate.put("http://localhost:8081/reservation/" + id, reservation, Reservation.class);
 
         return "redirect:/reservationList";
     }
@@ -143,12 +146,12 @@ public class FrontController {
         String modele = vehiculesForm.getModele();
         String immatriculation = vehiculesForm.getImmatriculation();
         int cvf = vehiculesForm.getCvf();
-        boolean available = vehiculesForm.isAvailable();
+
         int categorie = vehiculesForm.getCategorie();
 
         RestTemplate restTemplate = new RestTemplate();
 
-        Vehicules newVehicule = new Vehicules(marque, modele, immatriculation, cvf, available, categorie);
+        Vehicules newVehicule = new Vehicules(marque, modele, immatriculation, cvf, categorie);
 
         restTemplate.postForObject("http://localhost:8081/vehicule", newVehicule, Vehicules.class);
 
@@ -162,7 +165,7 @@ public class FrontController {
     public String viewVehicule(Model model, @PathVariable int id) {
 
         Vehicules vehicule = new RestTemplate().getForObject("http://localhost:8081/vehicules/" + id, Vehicules.class);
-        VehiculesForm vehiculesForm = new VehiculesForm(vehicule.getMarque(), vehicule.getModele(), vehicule.getImmatriculation(), vehicule.getCvf(), vehicule.isAvailable(), vehicule.getCategorie());
+        VehiculesForm vehiculesForm = new VehiculesForm(vehicule.getMarque(), vehicule.getModele(), vehicule.getImmatriculation(), vehicule.getCvf(), vehicule.getCategorie());
         model.addAttribute("vehiculesForm", vehiculesForm);
 
         return "vehicules";
@@ -175,7 +178,6 @@ public class FrontController {
         String modele = vehiculesForm.getModele();
         String immatriculation = vehiculesForm.getImmatriculation();
         int cvf = vehiculesForm.getCvf();
-        boolean available = vehiculesForm.isAvailable();
         int categorie = vehiculesForm.getCategorie();
         Vehicules[] vehicules = new RestTemplate().getForObject("http://localhost:8081/vehicules", Vehicules[].class);
 
@@ -184,7 +186,7 @@ public class FrontController {
             if (id == vehicule.getId()) {
                 vehicule.setMarque(marque);
                 vehicule.setCategorie(categorie);
-                vehicule.setAvailable(available);
+
                 vehicule.setImmatriculation(immatriculation);
                 vehicule.setCvf(cvf);
                 vehicule.setModele(modele);
@@ -206,7 +208,7 @@ public class FrontController {
 
         Vehicules vehicules = new RestTemplate().getForObject("http://localhost:8081/vehicules/" + id, Vehicules.class);
         assert vehicules != null;
-        Vehicules vehicule = new Vehicules(vehicules.getMarque(), vehicules.getModele(), vehicules.getImmatriculation(), vehicules.getCvf(), vehicules.isAvailable(), vehicules.getCategorie());
+        Vehicules vehicule = new Vehicules(vehicules.getMarque(), vehicules.getModele(), vehicules.getImmatriculation(), vehicules.getCvf(), vehicules.getCategorie());
         model.addAttribute("vehicule", vehicule);
 
         return "vehicule";
@@ -225,16 +227,37 @@ public class FrontController {
 
         return "addReservation";
     }
+
     @PostMapping("/addReservation")
     public String addNewReservationToDB(Model model, @ModelAttribute("reservationForm") ReservationForm reservationForm) {
         int id = reservationForm.getId();
         int userId = reservationForm.getUserId();
         int vehiculeId = reservationForm.getVehiculeId();
+        long km = reservationForm.getKm();
+        Date firstDate = reservationForm.getFirstDate();
+        Date lastDate = reservationForm.getLastDate();
+        boolean available = true;
+        Reservation[] reservations = new RestTemplate().getForObject("http://localhost:8082/reservation/byvehicule/" + vehiculeId, Reservation[].class);
 
         RestTemplate restTemplate = new RestTemplate();
-        Reservation reservation = new Reservation(id, userId, vehiculeId);
-        restTemplate.postForObject("http://localhost:8082/reservation", reservation, Reservation.class);
+        Reservation newReservation = new Reservation(id, userId, vehiculeId, km, firstDate, lastDate);
 
-        return "redirect:/vehiculesList";
+        for (Reservation reservation : reservations) {
+            if ((!newReservation.getFirstDate().after(reservation.getFirstDate()))
+                    || (newReservation.getFirstDate().before(reservation.getLastDate()))
+                    || (!newReservation.getLastDate().after(reservation.getFirstDate()))
+                    || ((newReservation.getFirstDate().equals(reservation.getFirstDate()))
+                    && (newReservation.getLastDate().equals(reservation.getLastDate())))) {
+                available = false;
+                model.addAttribute("errorMessage", errorMessage);
+
+            }
+        }
+        if (available) {
+            restTemplate.postForObject("http://localhost:8082/reservation", newReservation, Reservation.class);
+            return "redirect:/vehiculesList";
+        }
+        return "addReservation";
     }
+
 }

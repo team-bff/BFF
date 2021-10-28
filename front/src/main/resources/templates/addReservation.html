@@ -29,8 +29,18 @@
                 th:value="${vehicule.id}"
                 th:text="${vehicule.marque}+' : '+${vehicule.modele}"></option>
     </select>
+        Nombre de kilomètres estimés
+        <input type="number" th:field="*{km}"/>
+        Date de début
+        <input type="date" th:field="*{firstDate}"/>
+        Date de fin
+        <input type="date" th:field="*{lastDate}"/>
+
     <input type="submit" th:action="Create">
     </form>
+    <div th:if="${errorMessage}" th:text="${errorMessage}">...</div>
 </div>
+
+
 </body>
 </html>

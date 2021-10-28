@@ -15,17 +15,16 @@ public class Vehicules {
         private String immatriculation;
 
         private int cvf;
-    @Column(name = "disponible")
-        private boolean available;
+
 
         private int categorie;
 
-        public Vehicules(String marque, String modele, String immatriculation, int cvf, boolean available, int categorie) {
+        public Vehicules(String marque, String modele, String immatriculation, int cvf, int categorie) {
             this.marque = marque;
             this.modele = modele;
             this.immatriculation = immatriculation;
             this.cvf = cvf;
-            this.available = available;
+
             this.categorie = categorie;
         }
 
@@ -73,13 +72,6 @@ public class Vehicules {
             this.cvf = cvf;
         }
 
-        public boolean isAvailable() {
-            return available;
-        }
-
-        public void setAvailable(boolean available) {
-            this.available = available;
-        }
 
         public int getCategorie() {
             return categorie;

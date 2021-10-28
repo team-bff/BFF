@@ -13,16 +13,16 @@ public class VehiculesForm {
 
     private int cvf;
 
-    private boolean available;
+
 
     private int categorie;
 
-    public VehiculesForm( String marque, String modele, String immatriculation, int cvf, boolean available, int categorie) {
+    public VehiculesForm( String marque, String modele, String immatriculation, int cvf, int categorie) {
         this.marque = marque;
         this.modele = modele;
         this.immatriculation = immatriculation;
         this.cvf = cvf;
-        this.available = available;
+
         this.categorie = categorie;
     }
 
@@ -68,14 +68,6 @@ public class VehiculesForm {
 
     public void setCvf(int cvf) {
         this.cvf = cvf;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
     }
 
     public int getCategorie() {
