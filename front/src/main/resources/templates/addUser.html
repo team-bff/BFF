@@ -35,7 +35,7 @@
     <br/>
     Birthday
     <input type="date" th:field="*{birthday}" />
-
+    <div th:if="${errorMessages}" th:text="${errorMessages}">...</div>
     <br/>
     <input type="submit" value="Create" class="button" />
 </form>

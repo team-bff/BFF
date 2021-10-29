@@ -12,8 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +24,9 @@ import java.util.concurrent.TimeUnit;
 public class FrontController {
     @Value("${error.message}")
     private String errorMessage;
+    @Value("${error.messageAge}")
+    private String errorMessageAge;
+
     @GetMapping("/index")
     public String index(Model model) {
         return "index";
@@ -101,14 +106,20 @@ public class FrontController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         List<Users> users = restTemplate.getForObject("http://localhost:8080/users", List.class);
         Date birthday = null;
+        Date currentDate = null;
         try {
             birthday = simpleDateFormat.parse(usersForm.getBirthday());
+            currentDate = simpleDateFormat.parse("2003-10-18");
             Date yearObtention = simpleDateFormat.parse(usersForm.getYearObtention());
 
 
             Users newUser = new Users(name, lastname, numberLicence, yearObtention, birthday);
-            new RestTemplate().postForObject("http://localhost:8080/users", newUser, Users.class);
-
+            if ((birthday != null) && (birthday.before(currentDate))) {
+                new RestTemplate().postForObject("http://localhost:8080/users", newUser, Users.class);
+            } else {
+                model.addAttribute("errorMessage", errorMessageAge);
+                return "addUser";
+            }
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -172,7 +183,7 @@ public class FrontController {
     }
 
     @PostMapping(value = {"/vehicules/{id}"})
-    public String saveTheUpdate(Model model, @PathVariable int id, @ModelAttribute("vehiculesForm") VehiculesForm vehiculesForm) {
+    public String saveTheUpdate(Model model, @PathVariable int id, @ModelAttribute("vehiculesForm") VehiculesForm vehiculesForm) throws ParseException {
 
         String marque = vehiculesForm.getMarque();
         String modele = vehiculesForm.getModele();
@@ -184,6 +195,7 @@ public class FrontController {
         assert vehicules != null;
         for (Vehicules vehicule : vehicules) {
             if (id == vehicule.getId()) {
+
                 vehicule.setMarque(marque);
                 vehicule.setCategorie(categorie);
 
@@ -229,7 +241,7 @@ public class FrontController {
     }
 
     @PostMapping("/addReservation")
-    public String addNewReservationToDB(Model model, @ModelAttribute("reservationForm") ReservationForm reservationForm) {
+    public String addNewReservationToDB(Model model, @ModelAttribute("reservationForm") ReservationForm reservationForm) throws ParseException {
         int id = reservationForm.getId();
         int userId = reservationForm.getUserId();
         int vehiculeId = reservationForm.getVehiculeId();
@@ -238,26 +250,42 @@ public class FrontController {
         Date lastDate = reservationForm.getLastDate();
         boolean available = true;
         Reservation[] reservations = new RestTemplate().getForObject("http://localhost:8082/reservation/byvehicule/" + vehiculeId, Reservation[].class);
+        Vehicules vehicules = new RestTemplate().getForObject("http://localhost:8081/vehicules/" + vehiculeId, Vehicules.class);
+
+        vehicules.getCvf();
 
         RestTemplate restTemplate = new RestTemplate();
         Reservation newReservation = new Reservation(id, userId, vehiculeId, km, firstDate, lastDate);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentDateless21 = null;
+        Date currentDateless25 = null;
+        Users users = new RestTemplate().getForObject("http://localhost:8080/users/" + userId, Users.class);
+        Date userBirthday = users.getBirthday();
+        currentDateless25 = simpleDateFormat.parse("1996-10-28");
+        currentDateless21 = simpleDateFormat.parse("2000-10-28");
+        if ((vehicules.getCvf() > 8 && userBirthday.after(currentDateless21)) || (vehicules.getCvf() > 13 && userBirthday.after(currentDateless25))) {
+            available = false;
+            model.addAttribute("errorMessage", errorMessageAge);
+        } else {
+            for (Reservation reservation : reservations) {
 
-        for (Reservation reservation : reservations) {
-            if ((!newReservation.getFirstDate().after(reservation.getFirstDate()))
-                    || (newReservation.getFirstDate().before(reservation.getLastDate()))
-                    || (!newReservation.getLastDate().after(reservation.getFirstDate()))
-                    || ((newReservation.getFirstDate().equals(reservation.getFirstDate()))
-                    && (newReservation.getLastDate().equals(reservation.getLastDate())))) {
-                available = false;
-                model.addAttribute("errorMessage", errorMessage);
+                if ((!newReservation.getFirstDate().after(reservation.getFirstDate()))
+                        || (newReservation.getFirstDate().before(reservation.getLastDate()))
+                        || (!newReservation.getLastDate().after(reservation.getFirstDate()))
+                        || ((newReservation.getFirstDate().equals(reservation.getFirstDate()))
+                        && (newReservation.getLastDate().equals(reservation.getLastDate())))) {
 
+                    available = false;
+                    model.addAttribute("errorMessage", errorMessage);
+                }
             }
         }
         if (available) {
             restTemplate.postForObject("http://localhost:8082/reservation", newReservation, Reservation.class);
             return "redirect:/vehiculesList";
+        } else {
+            return "addReservation";
         }
-        return "addReservation";
     }
 
 }
